@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 @st.cache(allow_output_mutation=True)  
 def get_data_by_state(model_name):
 	return pd.read_csv('train.csv')
-
+data = get_data_by_state('train.csv')
 header = st.container()
 dataset = st.container()
 features = st.container()
@@ -28,7 +28,6 @@ with header:
     st.title('Housing Rent Prediction')
     st.caption('Takes about a minute to load for the first time')
 with dataset:
-    data = get_data_by_state('train.csv')
     le = LabelEncoder()
     label = le.fit_transform(data['id'])
     data.drop('id', axis=1, inplace=True)
