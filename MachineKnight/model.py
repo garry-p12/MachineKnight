@@ -17,9 +17,8 @@ warnings.filterwarnings('ignore')
 
 @st.cache(allow_output_mutation=True)  
 def get_data_by_state(model_name):
-	var = pd.read_csv('train.csv')
-	return var
-data = get_data_by_state(var)
+	return pd.read_csv('train.csv')
+data = get_data_by_state('train.csv')
 header = st.container()
 dataset = st.container()
 features = st.container()
