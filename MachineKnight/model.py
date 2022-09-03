@@ -26,6 +26,7 @@ model_training = st.container()
 
 with header:
     st.title('Housing Rent Prediction')
+    st.caption('Takes about a minute to load for the first time')
 with dataset:
     data = get_data_by_state()
     le = LabelEncoder()
