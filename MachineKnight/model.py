@@ -15,6 +15,10 @@ from xgboost import XGBRegressor
 import warnings
 warnings.filterwarnings('ignore')
 
+@st.cache(allow_output_mutation=True)  
+def get_data_by_state():
+	return pd.read_csv('train.csv')
+
 header = st.container()
 dataset = st.container()
 features = st.container()
@@ -23,7 +27,7 @@ model_training = st.container()
 with header:
     st.title('Housing Rent Prediction')
 with dataset:
-    data = pd.read_csv('train.csv')
+    data = get_data_by_state()
     le = LabelEncoder()
     label = le.fit_transform(data['id'])
     data.drop('id', axis=1, inplace=True)
